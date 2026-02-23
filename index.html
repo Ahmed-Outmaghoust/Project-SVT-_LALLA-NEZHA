@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Le Cancer — Exposé (1BACSM)</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Police Google (optionnel, moderne). Si pas d'internet, le site reste ok. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Progress bar -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scrollBar"></div>
+  </div>
+
+  <!-- Top utilities -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo" aria-hidden="true">🧬</div>
+        <div>
+          <div class="brand__name">Le Cancer</div>
+          <div class="brand__tag">Exposé — 1BACSM</div>
+        </div>
+      </div>
+
+      <div class="topbar__actions">
+        <button class="chip" id="openCheat" type="button" title="Afficher un mini schéma">
+          📌 Schéma
+        </button>
+        <button class="chip" id="toggleTheme" type="button" title="Basculer le thème">
+          🌙 Mode sombre
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="container hero__grid">
+      <div class="hero__left">
+        <p class="badge">SVT — Information génétique & cycle cellulaire</p>
+        <h1>Comprendre le cancer</h1>
+        <p class="hero__subtitle">
+          Définition, causes, lien avec l’ADN, pourquoi c’est difficile à traiter,
+          comment il peut tuer, traitements et explication scientifique de la guérison (rémission).
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#definition">Commencer</a>
+          <a class="btn btn--ghost" href="#quiz">Tester mes connaissances</a>
+        </div>
+
+        <div class="hero__stats">
+          <div class="stat">
+            <div class="stat__num" data-count="3">0</div>
+            <div class="stat__label">idées clés : ADN • division • tumeur</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num" data-count="7">0</div>
+            <div class="stat__label">sections du cours</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num" data-count="12">0</div>
+            <div class="stat__label">minutes de lecture</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right card -->
+      <div class="hero__right">
+        <div class="panel">
+          <div class="panel__title">Sommaire</div>
+
+          <div class="search">
+            <input id="searchInput" type="search" placeholder="Rechercher un mot (ex: ADN, métastase...)" autocomplete="off" />
+            <span class="search__icon" aria-hidden="true">⌕</span>
+          </div>
+
+          <nav class="toc" id="toc">
+            <a href="#definition" data-section>1) Définition</a>
+            <a href="#causes" data-section>2) Causes</a>
+            <a href="#genetique" data-section>3) Lien avec l’ADN</a>
+            <a href="#pourquoi-pas-stop" data-section>4) Pourquoi on ne peut pas le stopper</a>
+            <a href="#comment-tue" data-section>5) Comment le cancer tue</a>
+            <a href="#traitements" data-section>6) Traitements</a>
+            <a href="#guerison" data-section>7) Pourquoi certains guérissent</a>
+            <a href="#quiz" data-section>Quiz</a>
+            <a href="#glossaire" data-section>Glossaire</a>
+            <a href="#sources" data-section>Sources</a>
+          </nav>
+
+          <div class="panel__hint">
+            Astuce : clique sur les cartes, ouvre les accordéons et fais le quiz.
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container content" id="contentRoot">
+
+    <!-- 1 Definition -->
+    <section class="section card reveal" id="definition">
+      <div class="section__head">
+        <h2>1) Définition du cancer</h2>
+        <p class="muted">
+          Une maladie où des cellules se divisent trop, échappent aux contrôles du corps et peuvent envahir d’autres organes.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <article class="mini-card clickable" data-toast="Cellule normale = division contrôlée ✅">
+          <h3>Cellule normale</h3>
+          <ul class="list">
+            <li>Division contrôlée (cycle cellulaire)</li>
+            <li>ADN réparé si erreur</li>
+            <li>Apoptose (mort programmée) si anomalie grave</li>
+          </ul>
+        </article>
+
+        <article class="mini-card clickable" data-toast="Cellule cancéreuse = dérèglement du cycle ❗">
+          <h3>Cellule cancéreuse</h3>
+          <ul class="list">
+            <li>Division excessive</li>
+            <li>Accumule des mutations</li>
+            <li>Peut former une tumeur</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="callouts">
+        <div class="callout">
+          <div class="callout__title">Tumeur bénigne</div>
+          <p>Reste localisée, ne détruit pas les tissus autour.</p>
+        </div>
+        <div class="callout">
+          <div class="callout__title">Tumeur maligne</div>
+          <p>Envahit les tissus et peut se propager (métastases).</p>
+        </div>
+        <div class="callout">
+          <div class="callout__title">Métastase</div>
+          <p>Cellules cancéreuses qui voyagent et colonisent d’autres organes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 Causes -->
+    <section class="section card reveal" id="causes">
+      <div class="section__head">
+        <h2>2) Causes du cancer</h2>
+        <p class="muted">
+          Le cancer n’a pas une seule cause : c’est souvent une <strong>accumulation</strong> de mutations au fil du temps.
+        </p>
+      </div>
+
+      <div class="chips">
+        <span class="pill">🚬 Tabac</span>
+        <span class="pill">☀️ UV</span>
+        <span class="pill">🧪 Pollution</span>
+        <span class="pill">🦠 Virus (HPV…)</span>
+        <span class="pill">🧬 Hérédité</span>
+        <span class="pill">⏳ Vieillissement</span>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <h3>Mutation</h3>
+            <p>Modification de l’ADN lors d’une copie ou à cause d’un agent externe.</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <h3>Accumulation</h3>
+            <p>Plusieurs mutations touchent des gènes importants (division, réparation, mort cellulaire).</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <h3>Dérèglement</h3>
+            <p>La cellule échappe aux contrôles → prolifération → tumeur → parfois métastases.</p>
+          </div>
+        </div>
+      </div>
+
+      <details class="accordion">
+        <summary>Exemples de facteurs (clique pour ouvrir)</summary>
+        <div class="accordion__body">
+          <ul class="list">
+            <li><strong>Tabac</strong> : contient des substances mutagènes.</li>
+            <li><strong>UV</strong> : endommagent l’ADN des cellules de la peau.</li>
+            <li><strong>HPV</strong> : peut perturber des gènes qui contrôlent le cycle cellulaire.</li>
+            <li><strong>Hérédité</strong> : certaines mutations sont transmises (cas plus rare).</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- 3 Genetique -->
+    <section class="section card reveal" id="genetique">
+      <div class="section__head">
+        <h2>3) Relation entre cancer et information génétique</h2>
+        <p class="muted">
+          L’<strong>ADN</strong> contient l’information qui guide la fabrication des protéines et le fonctionnement de la cellule.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="info-card">
+          <h3>Oncogènes</h3>
+          <p>Gènes qui peuvent <strong>stimuler</strong> la division. S’ils deviennent trop actifs → division trop rapide.</p>
+        </div>
+        <div class="info-card">
+          <h3>Gènes suppresseurs</h3>
+          <p>Gènes “freins” qui <strong>ralentissent</strong> la division ou déclenchent l’apoptose. S’ils sont inactivés → plus de frein.</p>
+        </div>
+        <div class="info-card">
+          <h3>Réparation de l’ADN</h3>
+          <p>Les gènes de réparation corrigent les erreurs. S’ils ne fonctionnent plus → mutations s’accumulent.</p>
+        </div>
+      </div>
+
+      <div class="banner clickable" data-toast="Lien SVT : ADN → gènes → protéines → cycle cellulaire ✅">
+        <div class="banner__icon">🧬</div>
+        <div>
+          <div class="banner__title">Idée clé</div>
+          <div class="banner__text">Le cancer est lié à des <strong>mutations de l’ADN</strong> qui dérèglent le <strong>cycle cellulaire</strong>.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Why not just stop -->
+    <section class="section card reveal" id="pourquoi-pas-stop">
+      <div class="section__head">
+        <h2>4) Pourquoi on ne peut pas juste “stopper” la multiplication</h2>
+        <p class="muted">
+          Parce que nos cellules normales se divisent aussi pour vivre : peau, sang, intestin…
+        </p>
+      </div>
+
+      <div class="split">
+        <div class="split__left">
+          <h3>Pourquoi c’est difficile ?</h3>
+          <ul class="list">
+            <li>Les cellules cancéreuses viennent de <strong>nos propres cellules</strong>.</li>
+            <li>Si on bloque toutes les divisions → on détruit aussi les tissus sains.</li>
+            <li>Les traitements cherchent à être <strong>plus toxiques pour la tumeur</strong> que pour le corps.</li>
+          </ul>
+        </div>
+
+        <div class="split__right">
+          <div class="quote">
+            <p>
+              En labo, on peut bloquer des cellules en division (ex: métaphase) pour observer les chromosomes.
+              Mais chez un humain, stopper la division partout empêcherait le renouvellement des tissus vitaux.
+            </p>
+            <span class="quote__author">— Explication SVT</span>
+          </div>
+        </div>
+      </div>
+
+      <details class="accordion">
+        <summary>Comparaison labo vs corps humain</summary>
+        <div class="accordion__body">
+          <div class="grid-2">
+            <div class="mini-card">
+              <h3>En laboratoire</h3>
+              <ul class="list">
+                <li>Culture de cellules (petite quantité)</li>
+                <li>On peut bloquer un moment précis</li>
+                <li>Objectif : observer les chromosomes</li>
+              </ul>
+            </div>
+            <div class="mini-card">
+              <h3>Dans le corps</h3>
+              <ul class="list">
+                <li>Milliards de cellules, tissus différents</li>
+                <li>Division nécessaire (sang, peau...)</li>
+                <li>Stop global = dangereux / mortel</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- 5 How it kills -->
+    <section class="section card reveal" id="comment-tue">
+      <div class="section__head">
+        <h2>5) Comment le cancer tue</h2>
+        <p class="muted">Le danger vient souvent de l’atteinte des organes et de la propagation.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="danger">
+          <h3>📍 Localement</h3>
+          <ul class="list">
+            <li>La tumeur prend de la place</li>
+            <li>Elle détruit/compresse les tissus</li>
+            <li>L’organe fonctionne moins bien</li>
+          </ul>
+        </div>
+        <div class="danger">
+          <h3>🌍 À distance</h3>
+          <ul class="list">
+            <li>Métastases (propagation)</li>
+            <li>Atteinte de plusieurs organes</li>
+            <li>Complications : infections, hémorragies, insuffisance</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Résumé :</strong> ce n’est pas juste “la multiplication”, c’est surtout
+        <strong>l’envahissement</strong>, la <strong>métastase</strong> et la <strong>défaillance d’organes</strong>.
+      </div>
+    </section>
+
+    <!-- 6 Treatments -->
+    <section class="section card reveal" id="traitements">
+      <div class="section__head">
+        <h2>6) Est-ce qu’il y a des remèdes / traitements ?</h2>
+        <p class="muted">Oui : plusieurs traitements existent, souvent combinés selon le type et le stade.</p>
+      </div>
+
+      <div class="grid-3">
+        <button class="treat clickable" type="button" data-modal="chirurgie">
+          <span class="treat__icon">🔪</span>
+          <span class="treat__title">Chirurgie</span>
+          <span class="treat__text">Retirer la tumeur si possible</span>
+        </button>
+
+        <button class="treat clickable" type="button" data-modal="radio">
+          <span class="treat__icon">☢️</span>
+          <span class="treat__title">Radiothérapie</span>
+          <span class="treat__text">Endommager l’ADN des cellules tumorales</span>
+        </button>
+
+        <button class="treat clickable" type="button" data-modal="chimio">
+          <span class="treat__icon">💊</span>
+          <span class="treat__title">Chimiothérapie</span>
+          <span class="treat__text">Cible surtout les cellules qui se divisent vite</span>
+        </button>
+
+        <button class="treat clickable" type="button" data-modal="ciblee">
+          <span class="treat__icon">🎯</span>
+          <span class="treat__title">Thérapies ciblées</span>
+          <span class="treat__text">Ciblent une mutation/protéine précise</span>
+        </button>
+
+        <button class="treat clickable" type="button" data-modal="immuno">
+          <span class="treat__icon">🛡️</span>
+          <span class="treat__title">Immunothérapie</span>
+          <span class="treat__text">Renforce la réponse immunitaire</span>
+        </button>
+
+        <div class="treat treat--static">
+          <span class="treat__icon">🧪</span>
+          <span class="treat__title">Médecine personnalisée</span>
+          <span class="treat__text">Adapter le traitement au profil de la tumeur</span>
+        </div>
+      </div>
+
+      <details class="accordion">
+        <summary>Pourquoi les effets secondaires existent ?</summary>
+        <div class="accordion__body">
+          <p>
+            Certains traitements touchent aussi des cellules saines qui se divisent vite (cheveux, peau, sang).
+            D’où fatigue, baisse d’immunité, etc. Les traitements modernes cherchent à être plus ciblés.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- 7 Why some recover -->
+    <section class="section card reveal" id="guerison">
+      <div class="section__head">
+        <h2>7) Comment expliquer scientifiquement que certains guérissent ?</h2>
+        <p class="muted">
+          On parle souvent de <strong>rémission</strong> : les signes du cancer disparaissent (parfois durablement).
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="mini-card">
+          <h3>Facteurs qui favorisent la guérison</h3>
+          <ul class="list">
+            <li>Détection précoce (petite tumeur, pas de métastases)</li>
+            <li>Type de cancer sensible aux traitements</li>
+            <li>Traitement adapté et bien suivi</li>
+            <li>Système immunitaire actif</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <h3>Explication “génétique”</h3>
+          <ul class="list">
+            <li>Chaque tumeur a ses mutations</li>
+            <li>Certaines mutations sont “ciblables” par un médicament</li>
+            <li>Le corps peut reconnaître des cellules anormales</li>
+            <li>La tumeur peut perdre sa capacité à se maintenir</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Important :</strong> “Guérison” dépend du type de cancer, du stade et du traitement.
+        Dans certains cas, la maladie peut revenir : d’où le suivi médical.
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section card reveal" id="quiz">
+      <div class="section__head">
+        <h2>Quiz interactif</h2>
+        <p class="muted">Teste-toi : 5 questions rapides.</p>
+      </div>
+
+      <div id="quizRoot" class="quiz"></div>
+
+      <div class="quiz__footer">
+        <button class="btn btn--primary" id="btnCheckQuiz" type="button">Corriger</button>
+        <button class="btn btn--ghost" id="btnResetQuiz" type="button">Recommencer</button>
+        <div class="quiz__score" id="quizScore" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Glossaire -->
+    <section class="section card reveal" id="glossaire">
+      <div class="section__head">
+        <h2>Glossaire</h2>
+        <p class="muted">Des mots importants, expliqués simplement.</p>
+      </div>
+
+      <div class="grid-2">
+        <details class="accordion">
+          <summary>Mutation</summary>
+          <div class="accordion__body">
+            <p>Changement dans l’ADN. Certaines mutations dérèglent le cycle cellulaire.</p>
+          </div>
+        </details>
+
+        <details class="accordion">
+          <summary>Cycle cellulaire</summary>
+          <div class="accordion__body">
+            <p>Étapes que suit une cellule avant de se diviser (copie de l’ADN, mitose…).</p>
+          </div>
+        </details>
+
+        <details class="accordion">
+          <summary>Apoptose</summary>
+          <div class="accordion__body">
+            <p>“Suicide” cellulaire programmé : élimine des cellules dangereuses.</p>
+          </div>
+        </details>
+
+        <details class="accordion">
+          <summary>Métastase</summary>
+          <div class="accordion__body">
+            <p>Propagation de cellules cancéreuses vers un autre organe.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Sources -->
+    <section class="section card reveal" id="sources">
+      <div class="section__head">
+        <h2>Sources</h2>
+        <p class="muted">Toutes les sources utilisées pour ce Projet</p>
+      </div>
+
+      <ul class="list">
+        <li>OMS — Informations générales sur le cancer</li>
+        <li>Institut National du Cancer (INCa) — Comprendre le cancer</li>
+        <li>National Cancer Institute (NCI) — Cancer basics</li>
+        <li>Cancer Research UK — How cancer starts</li>
+      </ul>>
+    </section>
+
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="document">
+      <div class="modal__head">
+        <div class="modal__title" id="modalTitle">Titre</div>
+        <button class="modal__close" type="button" data-close aria-label="Fermer">✕</button>
+      </div>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Back to top -->
+  <button class="toTop" id="toTop" type="button" aria-label="Retour en haut">↑</button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <div class="footer__title">Projet SVT — Le Cancer</div>
+        <div class="footer__meta">
+          <span><strong>Ahmed Outmaghoust</strong></span>
+          <span>•</span>
+          <span>Classe : <strong>1BACSM</strong></span>
+          <span>•</span>
+          <span>Établissement : <strong>LALLA NEZHA</strong></span>
+        </div>
+      </div>
+      <div class="footer__right">
+        <a class="link" href="#top">Retour en haut</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
