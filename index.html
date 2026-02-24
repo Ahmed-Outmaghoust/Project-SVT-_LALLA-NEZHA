@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projets SVT — Accueil</title>
+  <link rel="stylesheet" href="./home.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header class="top">
+    <div class="container top__inner">
+      <div class="brand">
+        <div class="logo">SVT</div>
+        <div>
+          <div class="name">Projets SVT</div>
+          <div class="meta">Ahmed Outmaghoust / Nacer Mesbahi / Othmane Smimen / Nassim Jamal Edinne • 1BACSM • LALLA NEZHA</div>
+        </div>
+      </div>
+      <button class="chip" id="toggleHomeTheme" type="button">🌙 Mode sombre</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Choisis un projet</h1>
+      <p>
+        Deux projets interactifs, chacun avec son propre thème et ses contenus :
+        <strong>Cancer</strong> ou <strong>Tabac & ADN</strong>.
+      </p>
+      <div class="hint" id="hint">Clique sur une carte pour ouvrir le projet.</div>
+    </section>
+
+    <section class="grid">
+      <a class="card" href="./cancer/" id="cardCancer">
+        <div class="card__icon">🧬</div>
+        <div class="card__title">Projet 1 — Le Cancer</div>
+        <div class="card__text">
+          Définition, causes, mutations, cycle cellulaire, métastases,
+          traitements, et pourquoi certains guérissent.
+        </div>
+        <div class="tags">
+          <span class="tag">Génétique</span><span class="tag">Cycle</span><span class="tag">Traitements</span>
+        </div>
+      </a>
+
+      <a class="card card--alt" href="./tabac/" id="cardTabac">
+        <div class="card__icon">🚬</div>
+        <div class="card__title">Projet 2 — Tabac & impact sur l’ADN</div>
+        <div class="card__text">
+          Substances mutagènes, dommages à l’ADN, mutations,
+          risques de cancer, prévention et sevrage.
+        </div>
+        <div class="tags">
+          <span class="tag">Mutations</span><span class="tag">Prévention</span><span class="tag">Santé</span>
+        </div>
+      </a>
+    </section>
+
+    <section class="small">
+      <div class="panel">
+        <h2>Comment ça marche ?</h2>
+        <ul>
+          <li>Chaque projet a des interactions : quiz, modales, accordéons, recherche…</li>
+          <li>Tu peux revenir ici via un bouton “Accueil” dans chaque projet.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
+  <script src="./home.js"></script>
+</body>
+</html>

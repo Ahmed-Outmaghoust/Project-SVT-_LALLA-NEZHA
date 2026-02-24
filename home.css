@@ -1,0 +1,135 @@
+:root{
+  --bg:#070a12;
+  --card: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.12);
+  --text:#e9efff;
+  --muted: rgba(233,239,255,0.72);
+  --acc1:#7c5cff;
+  --acc2:#19d3ff;
+  --shadow: 0 18px 60px rgba(0,0,0,0.40);
+}
+body.light{
+  --bg:#f6f7fb;
+  --card: rgba(0,0,0,0.04);
+  --border: rgba(0,0,0,0.12);
+  --text:#101827;
+  --muted: rgba(16,24,39,0.70);
+  --acc1:#2563eb;
+  --acc2:#06b6d4;
+  --shadow: 0 18px 60px rgba(15,23,42,0.12);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+.bg{
+  position:fixed; inset:0; z-index:-1;
+  background:
+    radial-gradient(900px 500px at 20% 10%, rgba(124,92,255,0.22), transparent 55%),
+    radial-gradient(900px 600px at 80% 0%, rgba(25,211,255,0.18), transparent 55%),
+    linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.35));
+}
+body.light .bg{
+  background:
+    radial-gradient(900px 500px at 20% 10%, rgba(37,99,235,0.18), transparent 55%),
+    radial-gradient(900px 600px at 80% 0%, rgba(6,182,212,0.14), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.45));
+}
+.container{width:min(1100px,92%); margin:0 auto}
+.top{
+  position:sticky; top:0;
+  backdrop-filter: blur(12px);
+  background: rgba(0,0,0,0.22);
+  border-bottom:1px solid var(--border);
+}
+body.light .top{ background: rgba(255,255,255,0.65); }
+.top__inner{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:12px 0;
+}
+.brand{display:flex; gap:10px; align-items:center}
+.logo{
+  width:44px; height:44px; border-radius:14px;
+  display:grid; place-items:center;
+  border:1px solid var(--border);
+  background: linear-gradient(135deg, rgba(124,92,255,0.25), rgba(25,211,255,0.18));
+  box-shadow: var(--shadow);
+  font-weight:900;
+}
+.name{font-weight:900; letter-spacing:-0.02em}
+.meta{font-size:12px; color: var(--muted)}
+.chip{
+  border:1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding:10px 12px;
+  border-radius:999px;
+  cursor:pointer;
+}
+.hero{padding:26px 0 10px}
+.hero h1{margin:0 0 6px; font-size: clamp(30px, 4vw, 44px); letter-spacing:-0.04em}
+.hero p{margin:0; color: var(--muted)}
+.hint{margin-top:10px; color: var(--muted); font-size:13px}
+.grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:14px;
+  padding: 14px 0;
+}
+.card{
+  text-decoration:none;
+  color: var(--text);
+  border:1px solid var(--border);
+  background: var(--card);
+  border-radius:22px;
+  padding:16px;
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+}
+.card:hover{transform: translateY(-2px); border-color: rgba(25,211,255,0.45); background: rgba(255,255,255,0.08)}
+body.light .card:hover{ background: rgba(0,0,0,0.05) }
+.card__icon{font-size:26px}
+.card__title{margin-top:6px; font-weight:900; letter-spacing:-0.02em}
+.card__text{margin-top:6px; color: var(--muted)}
+.tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+.tag{
+  border:1px solid var(--border);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  color: var(--muted);
+}
+.card--alt{
+  background: linear-gradient(135deg, rgba(255,107,138,0.12), rgba(255,206,107,0.10));
+}
+.small{padding: 10px 0 30px}
+.panel{
+  border:1px solid var(--border);
+  background: var(--card);
+  border-radius:22px;
+  padding:16px;
+}
+.panel h2{margin:0 0 10px}
+.panel ul{margin:0 0 0 18px; color: var(--muted)}
+.toast{
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%) translateY(20px);
+  opacity: 0;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  transition: opacity .18s ease, transform .18s ease;
+}
+body.light .toast{ background: rgba(255,255,255,0.85); color: var(--text); }
+.toast.show{opacity:1; transform: translateX(-50%) translateY(0)}
+@media (max-width: 860px){
+  .grid{grid-template-columns:1fr}
+}

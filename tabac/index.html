@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Projet SVT — Tabac & ADN</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scrollBar"></div>
+  </div>
+
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo" aria-hidden="true">🚬</div>
+        <div>
+          <div class="brand__name">Projet : Tabac & ADN</div>
+          <div class="brand__tag">SVT — Mutations & Information génétique</div>
+        </div>
+      </div>
+
+      <div class="topbar__actions">
+        <a class="chip" href="../">🏠 Accueil</a>
+        <button class="chip" id="openCheat" type="button">🧯 Pourquoi c’est dangereux</button>
+        <button class="chip" id="toggleTheme" type="button">🌙 Mode sombre</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero" id="top">
+    <div class="container hero__grid">
+      <div class="hero__left">
+        <p class="badge">Mutagènes • ADN • Mutations • Cancer</p>
+        <h1>Le tabac et son impact sur l’ADN</h1>
+        <p class="hero__subtitle">
+          La fumée de tabac contient des substances qui endommagent l’ADN.
+          Les dommages peuvent provoquer des mutations, perturber l’information génétique,
+          dérégler le cycle cellulaire et augmenter le risque de cancers et de maladies cardio-respiratoires.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#composition">Commencer</a>
+          <a class="btn btn--ghost" href="#quiz">Quiz</a>
+          <a class="btn btn--ghost" href="#faq">FAQ</a>
+        </div>
+
+        <div class="hero__stats">
+          <div class="stat">
+            <div class="stat__num" data-count="12">0</div>
+            <div class="stat__label">sections (lecture longue)</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num" data-count="15">0</div>
+            <div class="stat__label">mots-clés SVT</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num" data-count="13">0</div>
+            <div class="stat__label">minutes de lecture</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__right">
+        <div class="panel">
+          <div class="panel__title">Sommaire</div>
+          <div class="search">
+            <input id="searchInput" type="search" placeholder="Rechercher (mutations, ADN, goudrons...)" autocomplete="off" />
+            <span class="search__icon" aria-hidden="true">⌕</span>
+          </div>
+
+          <nav class="toc" id="toc">
+            <a href="#composition" data-section>1) Composition</a>
+            <a href="#adn" data-section>2) Effets sur l’ADN</a>
+            <a href="#mecanismes" data-section>3) Mécanismes moléculaires</a>
+            <a href="#mutations" data-section>4) Mutations & info génétique</a>
+            <a href="#progression" data-section>5) Timeline “du dommage au cancer”</a>
+            <a href="#cancer" data-section>6) Lien tabac-cancer</a>
+            <a href="#fumee-passive" data-section>7) Fumée passive</a>
+            <a href="#maladies" data-section>8) Autres maladies</a>
+            <a href="#prevention" data-section>9) Prévention</a>
+            <a href="#sevrage-details" data-section>10) Sevrage</a>
+            <a href="#faq" data-section>FAQ</a>
+            <a href="#quiz" data-section>Quiz</a>
+            <a href="#glossaire" data-section>Glossaire</a>
+            <a href="#sources" data-section>Sources</a>
+          </nav>
+
+          <div class="panel__hint">Astuce : clique sur les cartes et ouvre les accordéons.</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container content" id="contentRoot">
+    <!-- 1) Composition -->
+    <section class="section card reveal" id="composition">
+      <div class="section__head">
+        <h2>1) Composition du tabac</h2>
+        <p class="muted">
+          La fumée de cigarette contient des milliers de substances. Certaines sont responsables de la dépendance,
+          d’autres sont toxiques, et certaines sont mutagènes/cancérogènes (elles augmentent les mutations et le risque de cancer).
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="info-card clickable" data-toast="Goudrons = mélange cancérigène ❗">
+          <h3>Goudrons</h3>
+          <p>Contiennent plusieurs substances cancérigènes qui peuvent endommager l’ADN.</p>
+        </div>
+        <div class="info-card clickable" data-toast="Nicotine = dépendance ⚠️">
+          <h3>Nicotine</h3>
+          <p>Substance responsable de la dépendance (addiction).</p>
+        </div>
+        <div class="info-card clickable" data-toast="CO = moins d’oxygène dans le sang">
+          <h3>Monoxyde de carbone (CO)</h3>
+          <p>Diminue l’oxygénation des tissus et augmente les risques cardio-respiratoires.</p>
+        </div>
+      </div>
+
+      <details class="accordion">
+        <summary>Tableau : Substance → effet principal</summary>
+        <div class="accordion__body">
+          <table style="width:100%; border-collapse:collapse;">
+            <thead>
+              <tr>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid var(--border);">Substance</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid var(--border);">Effet</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid var(--border);">Conséquence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:8px; border-bottom:1px solid var(--border);">Nicotine</td>
+                <td style="padding:8px; border-bottom:1px solid var(--border);">Dépendance</td>
+                <td style="padding:8px; border-bottom:1px solid var(--border);">Difficulté d’arrêt</td>
+              </tr>
+              <tr>
+                <td style="padding:8px; border-bottom:1px solid var(--border);">Goudrons</td>
+                <td style="padding:8px; border-bottom:1px solid var(--border);">Mutagènes/cancérogènes</td>
+                <td style="padding:8px; border-bottom:1px solid var(--border);">Mutations ADN → cancers</td>
+              </tr>
+              <tr>
+                <td style="padding:8px;">CO</td>
+                <td style="padding:8px;">Moins d’oxygène</td>
+                <td style="padding:8px;">Fatigue + risque cardio</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>Pourquoi la fumée est dangereuse ?</summary>
+        <div class="accordion__body">
+          <p>
+            La combustion produit des molécules très réactives. Certaines peuvent se fixer sur l’ADN (adduits),
+            provoquer des cassures ou créer un stress oxydatif. Si la réparation est imparfaite, des mutations apparaissent.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- 2) DNA effects -->
+    <section class="section card reveal" id="adn">
+      <div class="section__head">
+        <h2>2) Effets sur l’ADN</h2>
+        <p class="muted">
+          Le tabac peut provoquer des dommages : modifications chimiques, cassures, erreurs lors de la copie.
+          Ces dommages peuvent devenir des mutations si la cellule ne les répare pas correctement.
+        </p>
+      </div>
+
+      <div class="callouts">
+        <div class="callout">
+          <div class="callout__title">Adduits à l’ADN</div>
+          <p>Substances qui “collent” à l’ADN → mauvaise lecture.</p>
+        </div>
+        <div class="callout">
+          <div class="callout__title">Stress oxydatif</div>
+          <p>Radicaux libres → dégâts ADN/protéines.</p>
+        </div>
+        <div class="callout">
+          <div class="callout__title">Cassures</div>
+          <p>Ruptures → erreurs possibles à la réparation.</p>
+        </div>
+      </div>
+
+      <div class="banner clickable" data-toast="Dommages ADN → réparation → erreurs possibles = mutations">
+        <div class="banner__icon">🧬</div>
+        <div>
+          <div class="banner__title">Chaîne logique</div>
+          <div class="banner__text">Dommages ADN → réparation → mutation → risque cancer.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) Mechanisms -->
+    <section class="section card reveal" id="mecanismes">
+      <div class="section__head">
+        <h2>3) Mécanismes moléculaires : comment la fumée abîme l’ADN ?</h2>
+        <p class="muted">
+          Ce n’est pas seulement “toxique”. Certaines molécules sont <strong>mutagènes</strong> :
+          elles augmentent la probabilité d’apparition de mutations lors des divisions cellulaires.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="mini-card">
+          <h3>3 mécanismes importants</h3>
+          <ul class="list">
+            <li><strong>Fixation</strong> de molécules sur l’ADN (adduits)</li>
+            <li><strong>Radicaux libres</strong> → stress oxydatif</li>
+            <li><strong>Cassures</strong> + réparation imparfaite</li>
+          </ul>
+        </div>
+        <div class="mini-card clickable" data-toast="Mutagène = augmente les mutations ⚠️">
+          <h3>Mot clé SVT</h3>
+          <p>
+            Un mutagène n’attaque pas toujours au même endroit, mais il augmente la fréquence d’erreurs.
+            Plus l’exposition est longue, plus le risque augmente.
+          </p>
+        </div>
+      </div>
+
+      <details class="accordion">
+        <summary>Pourquoi une mutation peut rester “définitive” ?</summary>
+        <div class="accordion__body">
+          <p>
+            Si une cellule copie son ADN avec une erreur et qu’elle se divise,
+            l’erreur est transmise aux cellules filles. La mutation devient une “information” dans cette lignée.
+            Si elle touche des gènes du cycle cellulaire, le risque de prolifération anormale augmente.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- 4) Mutations & genetic information -->
+    <section class="section card reveal" id="mutations">
+      <div class="section__head">
+        <h2>4) Mutations & information génétique</h2>
+        <p class="muted">
+          Une mutation modifie un gène. Un gène modifié peut produire une protéine anormale.
+          Si cette protéine participe au contrôle du cycle cellulaire, la cellule peut se diviser trop.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="mini-card">
+          <h3>Mutation</h3>
+          <ul class="list">
+            <li>Changement dans la séquence ADN</li>
+            <li>Peut être sans conséquence ou dangereuse</li>
+            <li>Effet important si gène “clé”</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <h3>Conséquences possibles</h3>
+          <ul class="list">
+            <li>Protéine modifiée ou absente</li>
+            <li>Contrôle du cycle affaibli</li>
+            <li>Prolifération anormale → tumeur</li>
+          </ul>
+        </div>
+      </div>
+
+      <details class="accordion">
+        <summary>Pourquoi toutes les mutations ne donnent pas un cancer ?</summary>
+        <div class="accordion__body">
+          <p>
+            Le corps possède des systèmes de réparation et une immunité capable d’éliminer des cellules anormales.
+            Mais si les mutations s’accumulent dans des gènes clés (freins, accélérateurs, réparateurs),
+            le risque augmente fortement.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- 5) Timeline -->
+    <section class="section card reveal" id="progression">
+      <div class="section__head">
+        <h2>5) Timeline : “du dommage au cancer” (simplifié)</h2>
+        <p class="muted">
+          Le tabac augmente le risque parce qu’il rend plus probable l’apparition de mutations.
+          Cette timeline illustre une progression logique (simplifiée).
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="mini-card">
+          <h3>Étapes</h3>
+          <ol class="list">
+            <li>Inhalation de fumée (mutagènes)</li>
+            <li>Dommages à l’ADN dans certaines cellules</li>
+            <li>Réparation imparfaite → mutations</li>
+            <li>Accumulation → contrôle du cycle affaibli</li>
+            <li>Prolifération → tumeur possible</li>
+            <li>Progression → cancer (et parfois métastases)</li>
+          </ol>
+        </div>
+
+        <div class="mini-card clickable" data-toast="Dose + durée = risque ↑">
+          <h3>Idée SVT : dose et durée</h3>
+          <ul class="list">
+            <li>Plus on fume, plus l’exposition est forte</li>
+            <li>Plus on fume longtemps, plus le risque s’accumule</li>
+            <li>Arrêter réduit progressivement les risques</li>
+          </ul>
+        </div>
+      </div>
+
+      <details class="accordion">
+        <summary>Tableau : ce que l’arrêt change</summary>
+        <div class="accordion__body">
+          <table style="width:100%; border-collapse:collapse;">
+            <thead>
+              <tr>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid var(--border);">Aspect</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid var(--border);">Quand on fume</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid var(--border);">Quand on arrête</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:8px; border-bottom:1px solid var(--border);">Exposition aux mutagènes</td>
+                <td style="padding:8px; border-bottom:1px solid var(--border);">Continue</td>
+                <td style="padding:8px; border-bottom:1px solid var(--border);">Chute fortement</td>
+              </tr>
+              <tr>
+                <td style="padding:8px; border-bottom:1px solid var(--border);">Dommages à l’ADN</td>
+                <td style="padding:8px; border-bottom:1px solid var(--border);">Plus fréquents</td>
+                <td style="padding:8px; border-bottom:1px solid var(--border);">Moins fréquents</td>
+              </tr>
+              <tr>
+                <td style="padding:8px;">Risque (global)</td>
+                <td style="padding:8px;">Augmente</td>
+                <td style="padding:8px;">Diminue progressivement</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <!-- 6) Link to cancer -->
+    <section class="section card reveal" id="cancer">
+      <div class="section__head">
+        <h2>6) Lien entre tabac et cancer</h2>
+        <p class="muted">
+          Le tabac augmente le risque de plusieurs cancers car il favorise les mutations
+          et maintient une irritation/inflammation des tissus exposés.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <button class="treat clickable" type="button" data-modal="poumon">
+          <span class="treat__icon">🫁</span>
+          <span class="treat__title">Poumon</span>
+          <span class="treat__text">Contact direct fumée</span>
+        </button>
+        <button class="treat clickable" type="button" data-modal="gorge">
+          <span class="treat__icon">👄</span>
+          <span class="treat__title">Bouche / gorge</span>
+          <span class="treat__text">Irritation + mutagènes</span>
+        </button>
+        <button class="treat clickable" type="button" data-modal="coeur">
+          <span class="treat__icon">❤️</span>
+          <span class="treat__title">Cœur / vaisseaux</span>
+          <span class="treat__text">Risque cardio ↑</span>
+        </button>
+      </div>
+
+      <div class="note-box">
+        <strong>Idée :</strong> plus on fume et plus longtemps, plus le risque augmente. Arrêter diminue progressivement les risques.
+      </div>
+    </section>
+
+    <!-- 7) Passive smoking -->
+    <section class="section card reveal" id="fumee-passive">
+      <div class="section__head">
+        <h2>7) Fumée passive : pourquoi c’est un risque réel ?</h2>
+        <p class="muted">
+          Même sans fumer, respirer la fumée expose aux particules et aux substances mutagènes.
+          La dose est souvent plus faible, mais l’exposition répétée n’est pas neutre.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="mini-card clickable" data-toast="Fumée passive = exposition involontaire ⚠️">
+          <h3>Exemples d’exposition</h3>
+          <ul class="list">
+            <li>Maison / voiture fermée</li>
+            <li>Proximité dans des lieux publics</li>
+            <li>Exposition quotidienne (famille)</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <h3>Pourquoi c’est problématique ?</h3>
+          <ul class="list">
+            <li>Particules fines + substances cancérigènes</li>
+            <li>Irritation chronique des muqueuses</li>
+            <li>Risque cardio-respiratoire augmenté</li>
+          </ul>
+        </div>
+      </div>
+
+      <details class="accordion">
+        <summary>Idée SVT : dose + durée</summary>
+        <div class="accordion__body">
+          <p>
+            Beaucoup de risques en santé dépendent de la dose et de la durée.
+            Une dose faible mais répétée sur plusieurs années peut augmenter le risque.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- 8) Other diseases -->
+    <section class="section card reveal" id="maladies">
+      <div class="section__head">
+        <h2>8) Maladies liées au tabac : ADN + organes</h2>
+        <p class="muted">
+          Le tabac agit sur plusieurs systèmes : respiratoire, cardio-vasculaire et immunitaire.
+          Le lien ADN est central pour le cancer, mais les effets dépassent largement le cancer.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="info-card">
+          <h3>Cancers</h3>
+          <p>Mutations + inflammation → risque augmenté de cancers (poumon, gorge…).</p>
+        </div>
+        <div class="info-card">
+          <h3>Respiration</h3>
+          <p>Irritation chronique, toux, baisse de capacité respiratoire.</p>
+        </div>
+        <div class="info-card">
+          <h3>Cœur</h3>
+          <p>CO + inflammation → risques cardio-vasculaires augmentés.</p>
+        </div>
+      </div>
+
+      <details class="accordion">
+        <summary>Pourquoi le tabac “fatigue” le corps ?</summary>
+        <div class="accordion__body">
+          <p>
+            Moins d’oxygène (CO), inflammation et stress oxydatif : le corps est en mode “réparation” permanent.
+            Cela augmente les risques sur le long terme (erreurs biologiques, fragilisation).
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- 9) Prevention -->
+    <section class="section card reveal" id="prevention">
+      <div class="section__head">
+        <h2>9) Prévention</h2>
+        <p class="muted">La meilleure prévention : ne pas commencer. Sinon : arrêter le plus tôt possible.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="mini-card clickable" data-toast="Éviter = meilleure prévention ✅">
+          <h3>Prévenir</h3>
+          <ul class="list">
+            <li>Éviter de fumer</li>
+            <li>Éviter la fumée passive</li>
+            <li>Sensibiliser autour de soi</li>
+          </ul>
+        </div>
+        <div class="mini-card clickable" data-toast="Arrêter tôt = bénéfices plus rapides 👍">
+          <h3>Pourquoi arrêter aide</h3>
+          <ul class="list">
+            <li>Moins d’exposition aux mutagènes</li>
+            <li>Réduction de l’inflammation</li>
+            <li>Réduction progressive du risque</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10) Sevrage details -->
+    <section class="section card reveal" id="sevrage-details">
+      <div class="section__head">
+        <h2>10) Sevrage : explication biologique et stratégies</h2>
+        <p class="muted">
+          La nicotine agit sur le cerveau (circuits de récompense), ce qui explique la dépendance.
+          Le sevrage réussit mieux avec une stratégie + accompagnement.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="mini-card">
+          <h3>Pourquoi c’est difficile ?</h3>
+          <ul class="list">
+            <li>Dépendance (besoin)</li>
+            <li>Habitudes (après repas, stress…)</li>
+            <li>Symptômes de manque (envie forte)</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <h3>Ce qui augmente la réussite</h3>
+          <ul class="list">
+            <li>Substituts nicotiniques</li>
+            <li>Accompagnement (médecin)</li>
+            <li>Plan : déclencheur → action</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Science :</strong> arrêter réduit l’exposition aux mutagènes ; le corps renouvelle ses cellules.
+        Plus on arrête tôt, plus l’impact positif est important.
+      </div>
+
+      <details class="accordion">
+        <summary>Exemple de plan simple</summary>
+        <div class="accordion__body">
+          <ul class="list">
+            <li>Identifier les moments (stress, sortie, après repas)</li>
+            <li>Prévoir un remplacement (eau, respiration, marche 5 min)</li>
+            <li>Fixer une date d’arrêt ou réduction progressive</li>
+            <li>Demander de l’aide si besoin</li>
+          </ul>
+        </div>
+      </details>
+
+      <div class="banner clickable" data-toast="Sevrage = biologie + habitudes + stratégie ✅">
+        <div class="banner__icon">✅</div>
+        <div>
+          <div class="banner__title">Conclusion</div>
+          <div class="banner__text">Arrêter est difficile, mais très bénéfique et scientifiquement logique.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section card reveal" id="faq">
+      <div class="section__head">
+        <h2>FAQ — Questions fréquentes (Tabac & ADN)</h2>
+        <p class="muted">10 questions/réponses pour réviser.</p>
+      </div>
+
+      <div class="grid-2">
+        <details class="accordion"><summary>1) La nicotine cause-t-elle directement le cancer ?</summary>
+          <div class="accordion__body"><p>La nicotine crée surtout la dépendance. Les goudrons et autres mutagènes sont les principaux responsables du risque de cancer.</p></div>
+        </details>
+
+        <details class="accordion"><summary>2) C’est quoi un mutagène ?</summary>
+          <div class="accordion__body"><p>Une substance qui augmente la fréquence des mutations (erreurs) dans l’ADN.</p></div>
+        </details>
+
+        <details class="accordion"><summary>3) Pourquoi le tabac abîme l’ADN ?</summary>
+          <div class="accordion__body"><p>Adduits sur l’ADN, stress oxydatif, cassures : si réparation imparfaite → mutations.</p></div>
+        </details>
+
+        <details class="accordion"><summary>4) Fumer peu, c’est sans danger ?</summary>
+          <div class="accordion__body"><p>Le risque augmente avec la dose et la durée. “Peu” n’est pas “zéro risque”.</p></div>
+        </details>
+
+        <details class="accordion"><summary>5) La fumée passive est-elle dangereuse ?</summary>
+          <div class="accordion__body"><p>Oui, elle expose aux substances mutagènes, surtout si l’exposition est répétée.</p></div>
+        </details>
+
+        <details class="accordion"><summary>6) Pourquoi arrêter réduit le risque ?</summary>
+          <div class="accordion__body"><p>Moins d’exposition aux mutagènes. Le corps peut mieux renouveler et réparer.</p></div>
+        </details>
+
+        <details class="accordion"><summary>7) Pourquoi la dépendance est forte ?</summary>
+          <div class="accordion__body"><p>La nicotine stimule les circuits de récompense du cerveau, créant un besoin.</p></div>
+        </details>
+
+        <details class="accordion"><summary>8) Tabac = seulement cancers ?</summary>
+          <div class="accordion__body"><p>Non : aussi maladies respiratoires et cardio-vasculaires.</p></div>
+        </details>
+
+        <details class="accordion"><summary>9) Le CO fait quoi exactement ?</summary>
+          <div class="accordion__body"><p>Il réduit l’oxygène transporté par le sang, fatigue et stress pour l’organisme.</p></div>
+        </details>
+
+        <details class="accordion"><summary>10) Sevrage : patch/gomme servent à quoi ?</summary>
+          <div class="accordion__body"><p>À réduire progressivement le manque en apportant une dose contrôlée de nicotine.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section card reveal" id="quiz">
+      <div class="section__head">
+        <h2>Quiz interactif</h2>
+        <p class="muted">5 questions.</p>
+      </div>
+
+      <div id="quizRoot" class="quiz"></div>
+
+      <div class="quiz__footer">
+        <button class="btn btn--primary" id="btnCheckQuiz" type="button">Corriger</button>
+        <button class="btn btn--ghost" id="btnResetQuiz" type="button">Recommencer</button>
+        <div class="quiz__score" id="quizScore" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Glossary -->
+    <section class="section card reveal" id="glossaire">
+      <div class="section__head">
+        <h2>Glossaire (15 termes)</h2>
+        <p class="muted">Mots-clés SVT.</p>
+      </div>
+
+      <div class="grid-2">
+        <details class="accordion"><summary>ADN</summary><div class="accordion__body"><p>Support de l’information génétique.</p></div></details>
+        <details class="accordion"><summary>Gène</summary><div class="accordion__body"><p>Portion d’ADN liée à une fonction/protéine.</p></div></details>
+        <details class="accordion"><summary>Mutation</summary><div class="accordion__body"><p>Changement dans la séquence d’ADN.</p></div></details>
+        <details class="accordion"><summary>Mutagène</summary><div class="accordion__body"><p>Substance qui augmente la fréquence des mutations.</p></div></details>
+        <details class="accordion"><summary>Adduit ADN</summary><div class="accordion__body"><p>Molécule fixée sur l’ADN perturbant la copie.</p></div></details>
+        <details class="accordion"><summary>Stress oxydatif</summary><div class="accordion__body"><p>Dommages causés par des radicaux libres.</p></div></details>
+        <details class="accordion"><summary>Cassure ADN</summary><div class="accordion__body"><p>Rupture pouvant entraîner erreurs si mal réparée.</p></div></details>
+        <details class="accordion"><summary>Protéine</summary><div class="accordion__body"><p>Molécule fonctionnelle produite à partir d’un gène.</p></div></details>
+        <details class="accordion"><summary>Cycle cellulaire</summary><div class="accordion__body"><p>Étapes avant division (G1, S, G2, M).</p></div></details>
+        <details class="accordion"><summary>Cancérogène</summary><div class="accordion__body"><p>Substance qui augmente le risque de cancer.</p></div></details>
+        <details class="accordion"><summary>Inflammation</summary><div class="accordion__body"><p>Réaction du corps pouvant devenir chronique.</p></div></details>
+        <details class="accordion"><summary>Nicotine</summary><div class="accordion__body"><p>Substance addictive.</p></div></details>
+        <details class="accordion"><summary>Goudrons</summary><div class="accordion__body"><p>Mélange contenant des cancérogènes.</p></div></details>
+        <details class="accordion"><summary>CO</summary><div class="accordion__body"><p>Monoxyde de carbone : diminue l’oxygénation.</p></div></details>
+        <details class="accordion"><summary>Fumée passive</summary><div class="accordion__body"><p>Inhalation de fumée sans fumer soi-même.</p></div></details>
+      </div>
+    </section>
+
+    <!-- Sources -->
+    <section class="section card reveal" id="sources">
+      <div class="section__head">
+        <h2>Sources (générales)</h2>
+        <p class="muted">Références pour informations de base (vulgarisation).</p>
+      </div>
+      <ul class="list">
+        <li>OMS — Tabac (informations générales)</li>
+        <li>INCa — Tabac et cancers</li>
+        <li>CDC / NCI — Smoking & cancer basics</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="document">
+      <div class="modal__head">
+        <div class="modal__title" id="modalTitle">Titre</div>
+        <button class="modal__close" type="button" data-close aria-label="Fermer">✕</button>
+      </div>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
+  <button class="toTop" id="toTop" type="button" aria-label="Retour en haut">↑</button>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <div class="footer__title">Projet SVT — Tabac & ADN</div>
+        <div class="footer__meta">
+          <span><strong>Ahmed Outmaghoust / Nacer Mesbahi / Othmane Smimen / Nassim Jamal Edinne</strong></span>
+          <span>•</span>
+          <span>Classe : <strong>1BACSM</strong></span>
+          <span>•</span>
+          <span>Établissement : <strong>LALLA NEZHA</strong></span>
+        </div>
+      </div>
+      <div class="footer__right"><a class="link" href="#top">Retour en haut</a></div>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
