@@ -1,2 +1,2 @@
-# Cancer_Project-SVT-_LALLA-NEZHA
-cancer project for school
+# Project-SVT-_LALLA-NEZHA
+project for school
